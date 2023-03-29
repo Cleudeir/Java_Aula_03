@@ -16,7 +16,7 @@ public class App {
         List list = Extractor.transform(response);
         stickerGenerator gerador = new stickerGenerator();
         for (int i = 0; i < list.size(); i++) {
-            Conteudo conteudo = (Conteudo) list.get(i);
+            Content conteudo = (Content) list.get(i);
             InputStream urlImage = new URL(conteudo.getUrlImage()).openStream();            
             gerador.create(urlImage, conteudo.getTitle(), conteudo.getFont(),  conteudo.getDescription());
             System.out.println(conteudo.getTitle() + " " + (i + 1) + "/" + list.size());

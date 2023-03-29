@@ -1,4 +1,4 @@
-public record Conteudo (String title, String urlImage, String font, String description ) {
+public record Content (String title, String urlImage, String font, String description ) {
     
     public String getTitle() {
         return title;
