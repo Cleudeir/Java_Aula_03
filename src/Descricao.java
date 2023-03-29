@@ -1,0 +1,15 @@
+public enum Descricao {
+    MUITO_BOM("Muito bom"),
+    MAIS_OU_MENOS("Mais ou menos"),
+    EHHHHHH("Ehhhh!");
+
+    private String desc;
+    
+    private Descricao(String desc){
+        this.desc = desc;
+    }
+
+    public String getDesc(){
+        return desc;
+    }
+}
