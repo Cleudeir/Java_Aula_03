@@ -23,13 +23,13 @@ https://github.com/Cleudeir/Java_Aula_02
 
 Saídas: https://github.com/Cleudeir/Java_Aula_03/tree/main/public/output
 
-![](https://raw.githubusercontent.com/Cleudeir/Java_Aula_03/main/src/public/output/M51_The_Whirlpool_Galaxy_from_Hubble.png)
+![](https://raw.githubusercontent.com/Cleudeir/Java_Aula_03/main/public/output/M51_The_Whirlpool_Galaxy_from_Hubble.png)
 
-![](https://raw.githubusercontent.com/Cleudeir/Java_Aula_03/main/src/public/output/Fight_Club.png)
+![](https://raw.githubusercontent.com/Cleudeir/Java_Aula_03/main/public/output/Fight_Club.png)
 
-![](https://raw.githubusercontent.com/Cleudeir/Java_Aula_03/main/src/public/output/Toy_Story_3.png)
+![](https://raw.githubusercontent.com/Cleudeir/Java_Aula_03/main/public/output/Toy_Story_3.png)
 
-![](https://raw.githubusercontent.com/Cleudeir/Java_Aula_03/main/src/public/output/The_Wizard_of_Oz.png)
+![](https://raw.githubusercontent.com/Cleudeir/Java_Aula_03/main/public/output/The_Wizard_of_Oz.png)
 
 
 ## Imersão Alura Aula Posterior
