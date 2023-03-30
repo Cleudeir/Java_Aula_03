@@ -15,7 +15,7 @@ public class App {
         Extrator Extractor = new ExtractorNasa();
         List list = Extractor.transform(response);
         stickerGenerator gerador = new stickerGenerator();
-        for (int i = 0; i < 1 ; i++) {
+        for (int i = 0; i < list.size() ; i++) {
             Content conteudo = (Content) list.get(i);
             InputStream urlImage = new URL(conteudo.urlImage()).openStream();            
             gerador.create(urlImage, conteudo.title(), conteudo.font(),  conteudo.description());

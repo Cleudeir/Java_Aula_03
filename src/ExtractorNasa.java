@@ -13,7 +13,7 @@ public class ExtractorNasa implements Extrator {
                 .replaceAll(" ", "_");
             String urlImage = item.get("url");            
             String font = "NASA :" + item.get("copyright") ;
-            String  description = "Date :" + item.get("date");
+            String  description = item.get("date");
             var conteudo = new Content(title, urlImage, font, description);
             conteudos.add(conteudo);           
         }
