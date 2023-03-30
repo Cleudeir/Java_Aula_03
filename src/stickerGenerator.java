@@ -41,8 +41,8 @@ public class stickerGenerator {
             graphics.drawImage(logoAlura, 0, 0,  widthAlura, heightAlura, null);
 
             // Imagem marca minha foto
-            String imgEu = "public/logo/Eu.png";
-            BufferedImage logoEu = ImageIO.read(new File(imgEu));
+            String imgMy = "public/logo/Eu.png";
+            BufferedImage logoEu = ImageIO.read(new File(imgMy));
             int widthEu = (int) (width * correction  * 0.35 * 1);
             int heightEu = (int) (width * correction * 0.35 * 1.66);
             graphics.drawImage(logoEu, 0, height - heightEu,  widthEu, heightEu,null);
@@ -87,7 +87,7 @@ public class stickerGenerator {
 
         } catch (IOException e) {   
             e.printStackTrace(); 
-            throw new ArquivoNaoEncontradoException("Arquivo não encontrado");
+            throw new FileNotFound("Arquivo não encontrado");
         }
     }
 

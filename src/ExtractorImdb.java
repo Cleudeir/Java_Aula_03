@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class ExtractorImdb implements Extrator {
+public class ExtractorImdb implements Extractor {
     public List<Content> transform(String response){
         var jsonToList = new JsonToListMap();
         List<Map<String, String>> list = jsonToList.parse(response);
@@ -17,8 +17,8 @@ public class ExtractorImdb implements Extrator {
             String font = "IMDB";
             double rank = Double.parseDouble(item.get("rank"));
             String description = classification(rank);
-            var conteudo = new Content(title, urlImage, font, description);
-            contents.add(conteudo); 
+            var content = new Content(title, urlImage, font, description);
+            contents.add(content); 
         }
         );
         return contents;

@@ -10,17 +10,17 @@ public class App {
 
         String urlNasa = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/NASA-APOD.json";
 
-        var request = new ClienteHttp();
+        var request = new ClientHttp();
         String response = request.get(urlNasa);
-        Extrator Extractor = new ExtractorNasa();
+        Extractor Extractor = new ExtractorNasa();
         List list = Extractor.transform(response);
-        stickerGenerator gerador = new stickerGenerator();
+        stickerGenerator generator = new stickerGenerator();
 
         for (int i = 0; i < list.size() ; i++) {
-            Content conteudo = (Content) list.get(i);
-            InputStream urlImage = new URL(conteudo.urlImage()).openStream();            
-            gerador.create(urlImage, conteudo.title(), conteudo.font(),  conteudo.description());
-            System.out.println(conteudo.title() + " " + (i + 1) + "/" + list.size());
+            Content content = (Content) list.get(i);
+            InputStream urlImage = new URL(content.urlImage()).openStream();            
+            generator.create(urlImage, content.title(), content.font(),  content.description());
+            System.out.println(content.title() + " " + (i + 1) + "/" + list.size());
         }
     }
 }

@@ -1,5 +1,5 @@
 import java.util.List;
 
-public interface Extrator {
+public interface Extractor {
     List<Content> transform(String response);
 }
