@@ -6,8 +6,9 @@ public class ExtractorImdb implements Extrator {
     public List<Content> transform(String response){
         var jsonToList = new JsonToListMap();
         List<Map<String, String>> list = jsonToList.parse(response);
-        List<Content> conteudos = new ArrayList<>();
-        for (Map<String,String> item : list) {
+        List<Content> contents = new ArrayList<>();
+
+        list.stream().forEach(item-> {
             String title = item.get("title")
                 .replaceAll("[^a-zA-Z0-9\\s]", "")
                 .replaceAll(" ", "_");
@@ -17,9 +18,10 @@ public class ExtractorImdb implements Extrator {
             double rank = Double.parseDouble(item.get("rank"));
             String description = classification(rank);
             var conteudo = new Content(title, urlImage, font, description);
-            conteudos.add(conteudo);           
+            contents.add(conteudo); 
         }
-        return conteudos;
+        );
+        return contents;
     }
 
     private String classification(double rank) {

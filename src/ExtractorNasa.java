@@ -7,7 +7,7 @@ public class ExtractorNasa implements Extrator {
         var jsonToList = new JsonToListMap();
         List<Map<String, String>> list = jsonToList.parse(response);
         List<Content> conteudos = new ArrayList<>();
-        for (Map<String,String> item : list) {
+        list.stream().forEach(item-> {
             String title = item.get("title")
                 .replaceAll("[^a-zA-Z0-9\\s]", "")
                 .replaceAll(" ", "_");
@@ -16,7 +16,7 @@ public class ExtractorNasa implements Extrator {
             String  description = item.get("date");
             var conteudo = new Content(title, urlImage, font, description);
             conteudos.add(conteudo);           
-        }
+        });
         return conteudos;
     }
 }

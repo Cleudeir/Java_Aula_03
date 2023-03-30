@@ -25,7 +25,6 @@ public class stickerGenerator {
             int width = 512;
             int height = 512 * origin.getHeight() / origin.getWidth();
             double correction =  height  < width ? ((double) height ) / ((double) width) : 1.0;
-            System.out.println(correction);
             final double Increment = height * 0.1;
             int heightIncrement = height + (int) Increment;
 

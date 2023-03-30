@@ -10,7 +10,7 @@ https://github.com/Cleudeir/Java_Aula_02
 
 2- ✔️ Criar as suas próprias exceções e usá-las na classe que implementa o cliente HTTP.
 
-3- Usar recursos do Java 8 e posterior, como Streams e Lambdas, para mapear uma lista em uma outra.
+3- ✔️ Usar recursos do Java 8 e posterior, como Streams e Lambdas, para mapear uma lista em uma outra.
 
 4- ✔️ Criar uma Enum que une, como configurações, a URL da API e o extrator utilizado.
 
