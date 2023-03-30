@@ -15,11 +15,11 @@ public class App {
         Extrator Extractor = new ExtractorNasa();
         List list = Extractor.transform(response);
         stickerGenerator gerador = new stickerGenerator();
-        for (int i = 0; i < list.size(); i++) {
+        for (int i = 0; i < 1 ; i++) {
             Content conteudo = (Content) list.get(i);
-            InputStream urlImage = new URL(conteudo.getUrlImage()).openStream();            
-            gerador.create(urlImage, conteudo.getTitle(), conteudo.getFont(),  conteudo.getDescription());
-            System.out.println(conteudo.getTitle() + " " + (i + 1) + "/" + list.size());
+            InputStream urlImage = new URL(conteudo.urlImage()).openStream();            
+            gerador.create(urlImage, conteudo.title(), conteudo.font(),  conteudo.description());
+            System.out.println(conteudo.title() + " " + (i + 1) + "/" + list.size());
         }
     }
 }

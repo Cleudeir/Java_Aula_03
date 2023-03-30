@@ -71,44 +71,39 @@ public class stickerGenerator {
             graphics.drawString(font, wordPositionXFont, wordPositionYFont);
 
             // Inserção Contorno no texto da descrição
-            FontRenderContext fontRenderContextDescription = graphics.getFontRenderContext();
-            var textLayoutDescription = new TextLayout(description, fontDescription, fontRenderContextDescription);
-            Shape outlineDescription = textLayoutDescription.getOutline(null);
-            AffineTransform transformDescription = graphics.getTransform();
-            transformDescription.translate(wordPositionXDescription, wordPositionYDescription);
-            graphics.setTransform(transformDescription);
-            var outlineStrokeDescription = new BasicStroke(width * 0.004f);
-            graphics.setStroke(outlineStrokeDescription);
-            graphics.setColor(Color.BLACK);
-            graphics.draw(outlineDescription);
-            graphics.setClip(outlineDescription);
-
-            // Inserção Contorno no texto da Font !! Não Funciona !!
-            FontRenderContext fontRenderContextFont = graphics.getFontRenderContext();
-            var textLayoutFont = new TextLayout(font, fontFont, fontRenderContextFont);
-            Shape outlineFont = textLayoutFont.getOutline(null);
-            AffineTransform transformFont = graphics.getTransform();
-            transformFont.translate(wordPositionXFont, wordPositionYFont);
-            graphics.setTransform(transformFont);
-            var outlineStrokeFont = new BasicStroke(width * 0.004f);
-            graphics.setStroke(outlineStrokeFont);
-            graphics.setColor(Color.BLACK);
-            graphics.draw(outlineFont);
-            graphics.setClip(outlineFont);
-            
+            Outline(description, width, graphics, fontDescription, wordPositionXDescription, wordPositionYDescription);
+ 
+            // Inserção Contorno no texto da Font
+            Outline(font, width, graphics, fontFont, wordPositionXFont, wordPositionYFont);
+  
             // Salvar Imagem
             String pathOutput = "public/output/";
-            try {
-                ImageIO.write(newImage, "png", new File( pathOutput + name + ".png"));
-            } catch (Exception e) {                
+
+            File file = new File(pathOutput);
+            if(!file.exists()){
                 Path path = Paths.get(pathOutput);
-                Files.createDirectory(path);
-                ImageIO.write(newImage, "png", new File( pathOutput + name + ".png"));
-                // e.getCause().getMessage();
+                Files.createDirectory(path);             
             }
-             
-        } catch (ArquivoNaoEncontradoException | IOException e) {    
+            ImageIO.write(newImage, "png", new File( pathOutput + name + ".png")); 
+
+        } catch (IOException e) {   
+            e.printStackTrace(); 
             throw new ArquivoNaoEncontradoException("Arquivo não encontrado");
         }
+    }
+
+    private void Outline(String text, int width, Graphics2D graphics, Font font,
+        int wordPositionX, int wordPositionY) {
+        FontRenderContext fontRenderContext = graphics.getFontRenderContext();
+        var textLayout = new TextLayout(text, font, fontRenderContext);
+        Shape outline = textLayout.getOutline(null);
+        AffineTransform transform = graphics.getTransform();
+        transform.translate(wordPositionX, wordPositionY);
+        graphics.setTransform(transform);
+        var outlineStroke = new BasicStroke(width * 0.003f);
+        graphics.setStroke(outlineStroke);
+        graphics.setColor(Color.BLACK);
+        graphics.draw(outline);
+        graphics.setClip(outline);
     }
 }
